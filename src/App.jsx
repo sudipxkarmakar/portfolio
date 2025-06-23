@@ -1,7 +1,12 @@
-export default function App() {
+import React from "react";
+import Hero from "./components/Hero";
+
+function App() {
   return (
-    <div className="text-4xl text-blue-500 font-bold p-10">
-      Hello Tailwind!
+    <div>
+      <Hero />
     </div>
-  )
+  );
 }
+
+export default App;

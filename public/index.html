@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudip Karmakar - Portfolio</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-black text-white min-h-screen flex items-center justify-center px-4">
+
+    <main class="text-center space-y-4">
+      <h1 class="text-5xl font-bold text-glitch">Sudip Karmakar</h1>
+      
+      <div class="text-xl font-medium">
+        <span id="typing" class="border-r-2 border-white pr-1"></span>
+      </div>
+
+      <a href="#projects" class="mt-4 inline-block bg-white text-black px-6 py-2 rounded hover:scale-105 transition-all duration-300">View Projects</a>
+    </main>
+
+    <script>
+      const roles = ["Full Stack Learner", "Creative Coder", "Art & DIY Enthusiast"];
+      let i = 0, j = 0, current = "", isDeleting = false;
+      const typingElement = document.getElementById("typing");
+
+      function typeEffect() {
+        if (i < roles.length) {
+          if (!isDeleting && j <= roles[i].length) {
+            current = roles[i].substring(0, j++);
+          } else if (isDeleting && j >= 0) {
+            current = roles[i].substring(0, j--);
+          }
+
+          typingElement.textContent = current;
+
+          if (!isDeleting && j === roles[i].length + 1) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000);
+          } else if (isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % roles.length;
+            setTimeout(typeEffect, 200);
+          } else {
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+          }
+        }
+      }
+
+      typeEffect();
+    </script>
+  </body>
+</html>

@@ -1,8 +1,9 @@
 import React from "react";
+import profileImg from "../assets/portfolio.jpeg";
 
 // Hero Component
 // Landing section with a split layout and a floating right-side icon bar
-const Hero = () => {
+const Hero = ({ isScrolled }) => {
   return (
     <section id="hero" className="hero-section">
       {/* Left Text Content */}
@@ -22,8 +23,8 @@ const Hero = () => {
 
       {/* Right Image Content */}
       <div className="hero-image">
-        {/* Large Placeholder image for the Hero Section */}
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sudip's Portrait" />
+        {/* Actual image for the Hero Section. Static now. */}
+        <img src={profileImg} alt="Sudip's Portrait" />
       </div>
 
       {/* Floating Right Icon Navigation Bar */}

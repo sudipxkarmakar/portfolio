@@ -1,14 +1,15 @@
 import React from "react";
+import profileImg from "../assets/portfolio.jpeg";
 
 // Sidebar Component
 // Handles the left sticky navigation and mobile menu
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar, isScrolled }) => {
   return (
     <aside className={`sidebar ${isOpen ? "active" : ""}`}>
       {/* Profile Section */}
       <div className="sidebar-profile">
-        {/* Placeholder image for Profile Picture */}
-        <img src="https://via.placeholder.com/150/111111/f4bc34?text=SK" alt="Sudip Karmakar" />
+        {/* Actual image for Profile Picture. Animates in on scroll. */}
+        <img src={profileImg} alt="Sudip Karmakar" className={isScrolled ? "scrolled-in square-img" : "square-img"} />
         <h2>SUDIP KARMAKAR</h2>
       </div>
 

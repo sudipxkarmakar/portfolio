@@ -3,7 +3,7 @@ import profileImg from "../assets/portfolio.jpeg";
 
 // Sidebar Component
 // Handles the left sticky navigation and mobile menu
-const Sidebar = ({ isOpen, toggleSidebar, isScrolled }) => {
+const Sidebar = ({ isOpen, toggleSidebar, isScrolled, activeSection }) => {
   return (
     <aside className={`sidebar ${isOpen ? "active" : ""}`}>
       {/* Profile Section */}
@@ -16,12 +16,12 @@ const Sidebar = ({ isOpen, toggleSidebar, isScrolled }) => {
       {/* Navigation Links */}
       <nav className="sidebar-nav">
         <ul>
-          <li><a href="#hero" onClick={toggleSidebar}>HOME</a></li>
-          <li><a href="#about" onClick={toggleSidebar}>ABOUT ME</a></li>
-          <li><a href="#resume" onClick={toggleSidebar}>RESUME</a></li>
-          <li><a href="#portfolio" onClick={toggleSidebar}>PORTFOLIO</a></li>
-          <li><a href="#testimonials" onClick={toggleSidebar}>TESTIMONIALS</a></li>
-          <li><a href="#contact" onClick={toggleSidebar}>CONTACT</a></li>
+          <li><a href="#hero" className={activeSection === "hero" ? "active" : ""} onClick={toggleSidebar}>HOME</a></li>
+          <li><a href="#about" className={activeSection === "about" ? "active" : ""} onClick={toggleSidebar}>ABOUT ME</a></li>
+          <li><a href="#resume" className={activeSection === "resume" ? "active" : ""} onClick={toggleSidebar}>RESUME</a></li>
+          <li><a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""} onClick={toggleSidebar}>PORTFOLIO</a></li>
+          <li><a href="#testimonials" className={activeSection === "testimonials" ? "active" : ""} onClick={toggleSidebar}>TESTIMONIALS</a></li>
+          <li><a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={toggleSidebar}>CONTACT</a></li>
         </ul>
       </nav>
 

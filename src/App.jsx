@@ -7,7 +7,6 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Sidebar from "./components/Sidebar";
 import IconRail from "./components/IconRail";
-import TitleBar from "./components/TitleBar";
 
 const sectionIds = ["hero", "about", "resume", "portfolio", "testimonials", "contact"];
 
@@ -57,7 +56,6 @@ function App() {
       <Sidebar activeSection={activeSection} />
       
       <main className="content-column">
-        <TitleBar activeSection={activeSection} />
         
         <div className="scroll-viewport">
           <About activeSection={activeSection} />

@@ -1,6 +1,5 @@
 import React from "react";
 import profileImg from "../assets/portfolio.jpeg";
-import { IconRail } from "./PanelShell";
 
 const Hero = ({ activeSection }) => {
   return (
@@ -25,8 +24,6 @@ const Hero = ({ activeSection }) => {
         <div className="hero-photo">
           <img src={profileImg} alt="Sudip Karmakar portrait" />
         </div>
-
-        <IconRail activeSection={activeSection} />
       </div>
     </section>
   );

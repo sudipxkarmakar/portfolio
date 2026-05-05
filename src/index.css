@@ -212,6 +212,7 @@ h4 {
   overflow-wrap: break-word;
 }
 
+
 .btn,
 .project-link {
   display: inline-flex;
@@ -1138,5 +1139,125 @@ h4 {
   .testimonial-avatar {
     width: 48px;
     height: 48px;
+  }
+}
+
+/* New Global Layout Structure */
+body {
+  background: #dbdbd9; 
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "hero hero rail"
+    "sidebar content rail";
+  height: calc(100vh - 2cm);
+  width: calc(100vw - 2cm);
+  margin: 1cm;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.hero-area {
+  grid-area: hero;
+  width: 100%;
+}
+
+.panel-sidebar {
+  grid-area: sidebar;
+  width: clamp(200px, 18vw, 280px);
+  height: calc(100vh - 2cm);
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: var(--yellow);
+  z-index: 10;
+}
+
+.content-column {
+  grid-area: content;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.rail-column {
+  grid-area: rail;
+  width: clamp(60px, 6vw, 80px);
+  height: calc(100vh - 2cm);
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 0;
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+/* Persistent Global Title Bar */
+.global-title-bar {
+  width: 100%;
+  padding: 24px 40px;
+  background: var(--paper);
+  z-index: 20;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.title-box {
+  width: 100%;
+  padding: 16px 24px;
+  border: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.global-title-bar .section-title {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  border: none;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  body {
+     overflow: auto;
+     height: auto;
+  }
+  .app-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
+    margin: 0.5cm;
+    width: calc(100vw - 1cm);
+    height: auto;
+    overflow: visible;
+  }
+  .panel-sidebar, .rail-column, .hero-area {
+    display: none;
   }
 }

@@ -86,8 +86,8 @@ h4 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: clamp(32px, 5vh, 64px) 40px;
+  justify-content: flex-start;
+  padding: 40px;
   overflow-y: auto;
 }
 
@@ -258,16 +258,7 @@ h4 {
   filter: grayscale(1) contrast(1.08);
 }
 
-.panel-sidebar {
-  width: clamp(190px, 18vw, 280px);
-  flex: 0 0 clamp(190px, 18vw, 280px);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: var(--yellow);
-  color: var(--ink);
-  overflow: hidden;
-}
+/* Sidebar styles moved to layout section */
 
 .sidebar-portrait {
   width: 100%;
@@ -1154,10 +1145,10 @@ body {
 
 .app-layout {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   grid-template-areas:
-    "hero hero rail"
-    "sidebar content rail";
+    "hero hero"
+    "sidebar content";
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -1166,6 +1157,10 @@ body {
   background: var(--paper);
   border: none;
   box-shadow: none;
+  align-items: start;
+  gap: 0;
+  row-gap: 0;
+  column-gap: 0;
   position: relative;
   scroll-behavior: smooth;
 }
@@ -1181,10 +1176,15 @@ body {
   height: 100vh;
   position: sticky;
   top: 0;
-  overflow-y: auto;
-  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
   background: var(--yellow);
+  color: var(--ink);
+  overflow: hidden;
+  border-right: 1px solid var(--line);
   z-index: 10;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .content-column {
@@ -1196,20 +1196,18 @@ body {
 }
 
 .rail-column {
-  grid-area: rail;
+  position: fixed; /* Changed to fixed so it stays visible while scrolling */
+  right: 0;
+  top: 0;
   width: clamp(60px, 6vw, 80px);
   height: 100vh;
-  position: sticky;
-  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 40px 0;
-  background: var(--paper);
-  border-left: 1px solid var(--line);
-  overflow-y: auto;
-  z-index: 10;
+  background: transparent;
+  z-index: 100;
 }
 
 /* Persistent Global Title Bar removed */

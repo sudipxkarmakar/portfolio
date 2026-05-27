@@ -1,5 +1,6 @@
 import React from "react";
 import PanelShell from "./PanelShell";
+import { ScrollReveal, ClipReveal, StaggerContainer, StaggerItem } from "./ScrollReveal";
 
 const testimonials = [
   {
@@ -27,21 +28,24 @@ const testimonials = [
 const Testimonials = ({ activeSection }) => {
   return (
     <PanelShell id="testimonials" activeSection={activeSection} size="compact" className="testimonials-panel">
-      <h2 className="section-title compact-title">TESTIMONIALS</h2>
+      <ClipReveal>
+        <h2 className="section-title compact-title">TESTIMONIALS</h2>
+      </ClipReveal>
 
-      <div className="testimonials-grid">
+      <StaggerContainer className="testimonials-grid" staggerTime={0.12} once={true}>
         {testimonials.map((testimonial) => (
-          <article className="testimonial-card" key={testimonial.id}>
+          <StaggerItem className="testimonial-card" key={testimonial.id} variant="slideUp">
             <div className="testimonial-avatar" aria-hidden="true">{testimonial.author.slice(0, 1)}</div>
             <div>
               <p className="testimonial-text">{testimonial.quote}</p>
               <p className="testimonial-author">{testimonial.author}</p>
             </div>
-          </article>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </PanelShell>
   );
 };
 
 export default Testimonials;
+

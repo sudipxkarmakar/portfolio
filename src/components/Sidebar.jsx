@@ -1,5 +1,6 @@
 import React from "react";
 import profileImg from "../assets/portfolio.jpeg";
+import { motion } from "framer-motion";
 
 const links = [
   { id: "hero", label: "HOME" },
@@ -21,20 +22,49 @@ const Sidebar = ({ activeSection }) => {
         </div>
 
         <nav className="sidebar-nav">
-          {links.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              className={activeSection === link.id ? "active" : ""}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className={isActive ? "active" : ""}
+                style={{ position: "relative" }}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavPill"
+                    className="active-pill-indicator"
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30
+                    }}
+                  />
+                )}
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="sidebar-social" aria-label="Social links">
-          <a href="#" aria-label="GitHub">GH</a>
-          <a href="#" aria-label="LinkedIn">LI</a>
+          <motion.a 
+            href="#" 
+            aria-label="GitHub"
+            whileHover={{ scale: 1.25, rotate: 10 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            GH
+          </motion.a>
+          <motion.a 
+            href="#" 
+            aria-label="LinkedIn"
+            whileHover={{ scale: 1.25, rotate: -10 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            LI
+          </motion.a>
         </div>
       </div>
     </aside>
@@ -42,3 +72,4 @@ const Sidebar = ({ activeSection }) => {
 };
 
 export default Sidebar;
+

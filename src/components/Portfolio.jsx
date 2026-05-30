@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PanelShell from "./PanelShell";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal, ClipReveal } from "./ScrollReveal";
+import titanImg from "../assets/titan.png";
+import campusCareImg from "../assets/CampusCare.png";
 
 const projects = [
   {
@@ -10,6 +12,7 @@ const projects = [
     category: "CLIENT WORK",
     desc: "Advanced search and filtering system for industrial gaskets.",
     visual: "assistant",
+    image: titanImg,
     stack: "React, Node.js, Custom Search Logic",
     detail: "A specialized search and selection web tool designed to help clients match, filter, and order exact gasket specifications based on industrial dimension criteria.",
     link: "https://sudipxkarmakar.github.io/titan/"
@@ -30,6 +33,7 @@ const projects = [
     category: "PERSONAL PROJECTS",
     desc: "AI-automated college portal for submissions, queries, and schedules.",
     visual: "portfolio",
+    image: campusCareImg,
     stack: "React, Node.js, AI APIs",
     detail: "An AI-powered academic dashboard that automates assignment reminders, answers student queries, and schedules college tasks, reducing manual coordination effort.",
     link: "https://sudipxkarmakar.github.io/CampusCare/"
@@ -48,24 +52,39 @@ const projects = [
 
 const filters = ["ALL", "CLIENT WORK", "PERSONAL PROJECTS"];
 
-const MockupThumb = ({ visual, title }) => (
+const MockupThumb = ({ visual, title, image }) => (
   <div className={`mockup-thumb mockup-${visual}`} aria-label={`${title} preview`}>
-    <span className="mockup-dot dot-one" />
-    <span className="mockup-dot dot-two" />
-    <span className="mockup-dot dot-three" />
-    <div className="browser-card">
-      <div className="browser-bar">
-        <span />
-        <span />
-        <span />
+    {image ? (
+      <div className="browser-card-full">
+        <div className="browser-bar">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="browser-image-container">
+          <img src={image} className="browser-image" alt={title} />
+        </div>
       </div>
-      <div className="browser-content">
-        <span className="mock-line wide" />
-        <span className="mock-line" />
-        <span className="mock-line short" />
-        <span className="mock-button" />
-      </div>
-    </div>
+    ) : (
+      <>
+        <span className="mockup-dot dot-one" />
+        <span className="mockup-dot dot-two" />
+        <span className="mockup-dot dot-three" />
+        <div className="browser-card">
+          <div className="browser-bar">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="browser-content">
+            <span className="mock-line wide" />
+            <span className="mock-line" />
+            <span className="mock-line short" />
+            <span className="mock-button" />
+          </div>
+        </div>
+      </>
+    )}
   </div>
 );
 
@@ -120,7 +139,7 @@ const Portfolio = ({ activeSection }) => {
               className="portfolio-item"
               key={project.id}
             >
-              <MockupThumb visual={project.visual} title={project.title} />
+              <MockupThumb visual={project.visual} title={project.title} image={project.image} />
               <div className="portfolio-info">
                 <h3>{project.title}</h3>
                 <p>{project.desc}</p>
@@ -173,7 +192,7 @@ const Portfolio = ({ activeSection }) => {
               >
                 x
               </button>
-              <MockupThumb visual={selectedProject.visual} title={selectedProject.title} />
+              <MockupThumb visual={selectedProject.visual} title={selectedProject.title} image={selectedProject.image} />
               <p className="modal-kicker">{selectedProject.category}</p>
               <h3 id="project-modal-title">{selectedProject.title}</h3>
               <p>{selectedProject.detail}</p>

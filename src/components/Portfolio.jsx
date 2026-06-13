@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal, ClipReveal } from "./ScrollReveal";
 import titanImg from "../assets/titan.png";
 import campusCareImg from "../assets/CampusCare.png";
+import alokaImg from "../assets/AlokaFastFood.png";
 
 const projects = [
   {
@@ -23,9 +24,11 @@ const projects = [
     category: "CLIENT WORK",
     desc: "Operational dashboard for table bookings, order tracking, and inventory.",
     visual: "portal",
+    image: alokaImg,
+    label: "Live",
     stack: "React, Node.js, MongoDB",
     detail: "A real-time restaurant operations system that tracks orders, kitchen queues, table allocations, and stock inventory levels from a single admin screen.",
-    link: "https://sudipxkarmakar/AlokaFastFood/"
+    link: "https://github.com/sudipxkarmakar/AlokaFastFood/"
   },
   {
     id: 3,
@@ -44,9 +47,10 @@ const projects = [
     category: "PERSONAL PROJECTS",
     desc: "E-commerce platform for listing and selling personal items.",
     visual: "automation",
+    label: "Code",
     stack: "React, Express, MongoDB, Payment Gateway",
     detail: "A fully functional e-commerce application designed to catalog, display, and sell personal projects and merchandise, complete with cart logic and checkout integration.",
-    link: "https://github.com/sudipxkarmakar.github.io/handmade-ecommerce/"
+    link: "https://github.com/sudipxkarmakar/handmade-ecommerce/"
   }
 ];
 
@@ -154,7 +158,7 @@ const Portfolio = ({ activeSection }) => {
                       rel="noopener noreferrer"
                       className="project-outline-link"
                     >
-                      {project.link.includes("github.com") ? "Code" : "Live"}
+                      {project.label ?? (project.link.includes("github.com") ? "Code" : "Live")}
                     </a>
                   )}
                 </div>
@@ -205,7 +209,7 @@ const Portfolio = ({ activeSection }) => {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    {selectedProject.link.includes("github.com") ? "View GitHub Repo" : "Visit Live Site"}
+                    {selectedProject.label === "Live" ? "Visit Live Site" : selectedProject.label === "Code" ? "View GitHub Repo" : selectedProject.link.includes("github.com") ? "View GitHub Repo" : "Visit Live Site"}
                   </a>
                 </div>
               )}

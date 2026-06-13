@@ -25,7 +25,7 @@ const projects = [
     visual: "portal",
     stack: "React, Node.js, MongoDB",
     detail: "A real-time restaurant operations system that tracks orders, kitchen queues, table allocations, and stock inventory levels from a single admin screen.",
-    link: "https://github.com/sudipxkarmakar/AlokaFastFood/"
+    link: "https://sudipxkarmakar/AlokaFastFood/"
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const projects = [
     visual: "automation",
     stack: "React, Express, MongoDB, Payment Gateway",
     detail: "A fully functional e-commerce application designed to catalog, display, and sell personal projects and merchandise, complete with cart logic and checkout integration.",
-    link: "https://sudipxkarmakar.github.io/handmade-ecommerce/"
+    link: "https://github.com/sudipxkarmakar.github.io/handmade-ecommerce/"
   }
 ];
 

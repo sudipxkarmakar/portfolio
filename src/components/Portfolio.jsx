@@ -28,7 +28,7 @@ const projects = [
     label: "Live",
     stack: "React, Node.js, MongoDB",
     detail: "A real-time restaurant operations system that tracks orders, kitchen queues, table allocations, and stock inventory levels from a single admin screen.",
-    link: "https://sudipxkarmakar/AlokaFastFood/"
+    link: "https://sudipxkarmakar.github.io/AlokaFastFood/"
   },
   {
     id: 3,

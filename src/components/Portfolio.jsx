@@ -123,13 +123,13 @@ const Portfolio = ({ activeSection }) => {
             <motion.article
               layout
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ 
-                opacity: 1, 
-                y: 0, 
+              whileInView={{
+                opacity: 1,
+                y: 0,
                 scale: 1,
-                transition: { 
-                  type: "spring", 
-                  stiffness: 100, 
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
                   damping: 15,
                   delay: idx * 0.08
                 }
@@ -166,17 +166,17 @@ const Portfolio = ({ activeSection }) => {
 
       <AnimatePresence>
         {selectedProject && (
-          <motion.div 
-            className="project-modal" 
-            role="dialog" 
-            aria-modal="true" 
+          <motion.div
+            className="project-modal"
+            role="dialog"
+            aria-modal="true"
             aria-labelledby="project-modal-title"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
           >
-            <motion.div 
+            <motion.div
               className="project-modal-card"
               initial={{ scale: 0.88, y: 30 }}
               animate={{ scale: 1, y: 0 }}

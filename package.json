@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/sudipxkarmakar/portfolio/issues"
   },
-  "homepage": "https://github.com/sudipxkarmakar/portfolio#readme",
+  "homepage": "https://sudipxkarmakar.github.io/portfolio/",
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
     "vite": "^8.0.10"
